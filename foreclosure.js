@@ -44,9 +44,9 @@ function loan() {
 
 function borrower(loan) {
   var account = {
-    monthlyIncome: 1350,
-    funds: 2800,
-    loan: loan
+    monthlyIncome : 1350,
+    funds : 2800,
+    loan : loan
   };
 
   return {
@@ -56,7 +56,7 @@ function borrower(loan) {
     makePayment : function() {
       if (account.funds > loan.getMonthlyPayment()) {
         account.funds -= loan.getMonthlyPayment();
-        loan.receivePayment(account.monthlyPayment);
+        loan.receivePayment(loan.getMonthlyPayment());
       } else {
         loan.receivePayment(account.funds);
         account.funds = 0;
@@ -76,3 +76,5 @@ while (stevesLoan.isForeclosed() !== true) {
   steve.makePayment();
   month++;
 }
+
+monthsUntilEvicted = month;
